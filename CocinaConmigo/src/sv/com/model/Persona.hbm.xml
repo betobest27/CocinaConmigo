@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-ene-2017 9:17:45 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="sv.com.model.Persona" table="persona" catalog="db_cocina" optimistic-lock="version">
+        <id name="idPersona" type="java.lang.Integer">
+            <column name="ID_PERSONA" />
+            <generator class="identity" />
+        </id>
+        <property name="nombres" type="string">
+            <column name="NOMBRES" length="100" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="APELLIDOS" length="80" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="CORREO" length="100" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="45" />
+        </property>
+        <property name="celular" type="string">
+            <column name="CELULAR" length="45" />
+        </property>
+        <property name="activo" type="string">
+            <column name="ACTIVO" length="2" not-null="true">
+                <comment>Activo &#147;S&#148; Inactivo &#147;N&#148; valor por defecto</comment>
+            </column>
+        </property>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PERSONA" not-null="true" />
+            </key>
+            <one-to-many class="sv.com.model.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

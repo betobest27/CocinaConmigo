@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-ene-2017 9:17:45 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="sv.com.model.Usuario" table="usuario" catalog="db_cocina" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="ID_USUARIO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="persona" class="sv.com.model.Persona" fetch="select">
+            <column name="ID_PERSONA" not-null="true" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="USUARIO" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="45" />
+        </property>
+        <property name="activo" type="string">
+            <column name="ACTIVO" length="2">
+                <comment>Activo &#147;S&#148; Inactivo &#147;N&#148; valor por defecto</comment>
+            </column>
+        </property>
+        <set name="contactos" table="contacto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" not-null="true" />
+            </key>
+            <one-to-many class="sv.com.model.Contacto" />
+        </set>
+        <set name="tipses" table="tips" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" not-null="true" />
+            </key>
+            <one-to-many class="sv.com.model.Tips" />
+        </set>
+        <set name="recetas" table="receta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" not-null="true" />
+            </key>
+            <one-to-many class="sv.com.model.Receta" />
+        </set>
+    </class>
+</hibernate-mapping>

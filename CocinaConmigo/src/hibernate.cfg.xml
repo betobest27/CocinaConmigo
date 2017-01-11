@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="SFHibernate">
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">daniela10</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_cocina</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping resource="sv/com/model/Categoria.hbm.xml" />
+        <mapping resource="sv/com/model/TipoComida.hbm.xml" />
+        <mapping resource="sv/com/model/Tips.hbm.xml" />
+        <mapping resource="sv/com/model/Receta.hbm.xml" />
+        <mapping resource="sv/com/model/Contacto.hbm.xml" />
+        <mapping resource="sv/com/model/TipoMedida.hbm.xml" />
+        <mapping resource="sv/com/model/Persona.hbm.xml" />
+        <mapping resource="sv/com/model/Ingrediente.hbm.xml" />
+        <mapping resource="sv/com/model/IngredienteReceta.hbm.xml" />
+        <mapping resource="sv/com/model/Usuario.hbm.xml" />
+        <mapping resource="sv/com/model/Parametro.hbm.xml" />
+        <mapping resource="sv/com/model/RecetaFavorita.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

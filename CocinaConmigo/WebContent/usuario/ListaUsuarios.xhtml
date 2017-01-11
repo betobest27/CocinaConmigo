@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>	
+<h:body style="background-image:url('../img/cocina-small.jpg'); repeat-x; repeat-y" width="100%" height="100%">
+	<h1>Usuarios</h1>
+	<h:form id="frmListaUsuarios">
+		<p:dataTable id="tablaListaUsuarios" var="item" value="#{usuarioBean.getListaUsuarios()}" emptyMessage="No hay usuarios registrados"
+		paginator="true" paginatorPosition="bottom" rows="10">
+			<p:column headerText="Nombre" width="15%">
+				<p:outputLabel value="#{item.persona.nombres}"/>
+			</p:column>
+			<p:column headerText="Apellido" width="15%">
+				<p:outputLabel value="#{item.persona.apellidos}"/>
+			</p:column>
+			<p:column headerText="Correo" width="25%">
+				<p:outputLabel value="#{item.persona.correo}"/>
+			</p:column>
+			<p:column headerText="Teléfono" width="10%">
+				<p:outputLabel value="#{item.persona.telefono}"/>
+			</p:column>
+			<p:column headerText="Celular" width="10%">
+				<p:outputLabel value="#{item.persona.celular}"/>
+			</p:column>
+			<p:column headerText="Activo" width="5%">
+				<p:outputLabel value="#{item.persona.activo}"/>
+			</p:column>
+			<p:column headerText="Usuario">
+				<p:outputLabel value="#{item.usuario}"/>
+			</p:column>
+		</p:dataTable>
+		<!--<p:panelGrid columns="2">
+			<p:outputLabel value="Nombres: " />
+			<p:inputText />
+			<p:outputLabel value="Apellidos: " />
+			<p:inputText />
+			<p:commandButton value="Enviar" />
+		</p:panelGrid>-->
+	</h:form>
+</h:body>
+</html>

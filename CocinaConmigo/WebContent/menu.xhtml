@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>	
+<h:body style="background-image:url('img/cocina-small.jpg'); repeat-x; repeat-y" width="100%" height="100%">
+	<h:form>
+	    <p:growl autoUpdate="true"/>
+	    <p:panelMenu style="width:190px">
+	        <p:submenu label="Administración">
+	        	<p:menuitem value="Usuarios" url="usuario/ListaUsuarios.jsf" target="central" icon="ui-icon-signal" />
+	        	<p:menuitem value="Perfiles" url="#" target="central" icon="ui-icon-signal" />
+	        </p:submenu>
+	        <p:submenu label="Categorias">
+	        	<p:submenu label="Cocina">
+	            	<p:menuitem value="Recetas" url="#" target="central" icon="ui-icon-disk" />
+	            	<p:menuitem value="Tips" url="#" target="central" icon="ui-icon-arrowrefresh-1-w" />
+	            	<p:menuitem value="Ingredientes" url="#" target="central" icon="ui-icon-disk" />
+	            </p:submenu>
+	            <p:submenu label="Alta Cocina">
+	            	<p:menuitem value="Entidad 1" url="#" target="central" icon="ui-icon-disk" />
+	            	<p:menuitem value="Entidad 2" url="#" target="central" icon="ui-icon-arrowrefresh-1-w" />
+	            	<p:menuitem value="Entidad 3" url="#" target="central" icon="ui-icon-disk" />
+	            </p:submenu>
+	        </p:submenu>
+	        <p:submenu label="Contacto">
+	            <p:menuitem value="Recibidos" url="#" icon="ui-icon-close"/>
+	            <p:menuitem value="Respuestas Enviadas" url="#" icon="ui-icon-close"/>
+	        </p:submenu>
+	    </p:panelMenu>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-ene-2017 9:17:45 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="sv.com.model.Ingrediente" table="ingrediente" catalog="db_cocina" optimistic-lock="version">
+        <id name="idIngrediente" type="java.lang.Integer">
+            <column name="ID_INGREDIENTE" />
+            <generator class="identity" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" not-null="true" />
+        </property>
+        <property name="fechaRegistro" type="timestamp">
+            <column name="FECHA_REGISTRO" length="19" not-null="true" />
+        </property>
+        <property name="fechaActualizacion" type="timestamp">
+            <column name="FECHA_ACTUALIZACION" length="19" />
+        </property>
+        <set name="ingredienteRecetas" table="ingrediente_receta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_INGREDIENTE" not-null="true" />
+            </key>
+            <one-to-many class="sv.com.model.IngredienteReceta" />
+        </set>
+    </class>
+</hibernate-mapping>
